@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dashboard Pessoal</title>
+<link rel="stylesheet" href="style.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<!-- AUTH -->
+<div id="auth-screen">
+  <div class="auth-box">
+    <h1>📊 Dashboard Pessoal</h1>
+    <p>Organize sua vida em um só lugar</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchTab('login')">Entrar</button>
+      <button class="auth-tab" onclick="switchTab('signup')">Cadastrar</button>
+    </div>
+    <div class="field"><label>E-mail</label><input type="text" id="auth-email" placeholder="seu@email.com"/></div>
+    <div class="field"><label>Senha</label><input type="password" id="auth-pass" placeholder="••••••••"/></div>
+    <button class="btn-primary" id="auth-btn" onclick="doAuth()">Entrar</button>
+    <div class="auth-err" id="auth-err"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app-screen">
+  <div class="topbar">
+    <h1>📊 Dashboard Pessoal</h1>
+    <div class="topbar-right">
+      <span class="user-email" id="user-email"></span>
+      <button class="btn-logout" id="theme-btn" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </div>
+  <nav>
+    <button class="nav-btn active" onclick="showTab('overview',this)">📊 Visão geral</button>
+    <button class="nav-btn" onclick="showTab('todos',this)">✅ Tarefas</button>
+    <button class="nav-btn" onclick="showTab('habits',this)">🔥 Hábitos</button>
+    <button class="nav-btn" onclick="showTab('notes',this)">📝 Notas</button>
+    <button class="nav-btn" onclick="showTab('finance',this)">💰 Finanças</button>
+  </nav>
+  <div id="tab-overview" class="tab show"></div>
+  <div id="tab-todos" class="tab"></div>
+  <div id="tab-habits" class="tab"></div>
+  <div id="tab-notes" class="tab"></div>
+  <div id="tab-finance" class="tab"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
